@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<link rel="icon" type="image/x-icon" href="./assets/Logo.png"/>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dashboard — EducaHub</title>
+<title>EducaHub | Dashboard</title>
 <link rel="stylesheet" href="styles/base.css" />
 <link rel="stylesheet" href="styles/dashboard.css" />
 </head>
@@ -17,10 +18,11 @@
         <div class="stat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-yellow" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span id="stat-xp">0</span></div>
         <div class="stat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-yellow-dark" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><span id="stat-coins">0</span></div>
       </div>
-      <button class="dash-user">
+      <button class="dash-user" id="dash-user-button" type="button">
         <span class="name" id="topbar-username">Usuário</span>
         <span class="avatar" id="topbar-avatar">U</span>
       </button>
+      <div class="dash-user-menu" id="dash-user-menu"></div>
     </div>
   </header>
 

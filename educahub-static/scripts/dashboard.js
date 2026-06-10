@@ -32,6 +32,7 @@ const state = {
   username: localStorage.getItem(LS.username) || 'Usuário',
   bio: localStorage.getItem(LS.bio) || 'Estudante apaixonado por tecnologia e meio ambiente 🌱',
   avatar: localStorage.getItem(LS.avatar) || '',
+  email: localStorage.getItem('educahub-email') || 'usuario@educahub.com',
 };
 
 function save() {
@@ -51,7 +52,44 @@ function refreshTopbar() {
   document.getElementById('stat-xp').textContent = state.xp;
   document.getElementById('stat-coins').textContent = state.coins;
   document.getElementById('topbar-username').textContent = state.username;
-  document.getElementById('topbar-avatar').textContent = (state.username || 'U').charAt(0).toUpperCase();
+  const topbarAvatar = document.getElementById('topbar-avatar');
+  const curAv = AVATARS.find(a => a.id === state.avatar);
+  topbarAvatar.className = 'avatar' + (curAv ? ` ${curAv.cls}` : '');
+  topbarAvatar.textContent = (state.username || 'U').charAt(0).toUpperCase();
+  renderUserMenu();
+}
+
+function renderUserMenu() {
+  const menu = document.getElementById('dash-user-menu');
+  if (!menu) return;
+  const curAv = AVATARS.find(a => a.id === state.avatar);
+  const avatarClass = curAv ? curAv.cls : '';
+  menu.innerHTML = `
+    <div class="user-summary">
+      <span class="avatar ${avatarClass}">${(state.username || 'U').charAt(0).toUpperCase()}</span>
+      <div class="info"><span class="name">${state.username}</span><span class="email">${state.email}</span></div>
+    </div>
+    <div class="divider"></div>
+    <button type="button" class="menu-item" id="user-menu-profile">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 22c0-4.418 3.582-8 8-8s8 3.582 8 8"/></svg>
+      <span>Meu Perfil</span>
+    </button>
+    <button type="button" class="menu-item" id="user-menu-settings">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span>Configurações</span>
+    </button>
+    <div class="divider"></div>
+    <button type="button" class="menu-item" id="user-menu-logout">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 8 20 12 16 16"/><line x1="9" y1="12" x2="20" y2="12"/></svg>
+      <span>Sair</span>
+    </button>
+  `;
+  const profileBtn = document.getElementById('user-menu-profile');
+  const settingsBtn = document.getElementById('user-menu-settings');
+  const logoutBtn = document.getElementById('user-menu-logout');
+  profileBtn?.addEventListener('click', () => { menu.classList.remove('open'); switchTab('perfil'); });
+  settingsBtn?.addEventListener('click', () => { menu.classList.remove('open'); switchTab('ajustes'); });
+  logoutBtn?.addEventListener('click', () => { window.location.href = 'index.html'; });
 }
 
 // Streak tracking on load
@@ -88,6 +126,17 @@ function switchTab(tab) {
 document.querySelectorAll('.dash-sidebar button, .bottom-nav button').forEach(btn => {
   btn.addEventListener('click', () => switchTab(btn.dataset.tab));
 });
+
+const dashUserButton = document.getElementById('dash-user-button');
+const dashUserMenu = document.getElementById('dash-user-menu');
+if (dashUserButton && dashUserMenu) {
+  dashUserButton.addEventListener('click', e => {
+    e.stopPropagation();
+    dashUserMenu.classList.toggle('open');
+  });
+  dashUserMenu.addEventListener('click', e => e.stopPropagation());
+  document.addEventListener('click', () => dashUserMenu.classList.remove('open'));
+}
 
 // =============== TRILHA ===============
 const sectionColors = ['s0', 's1', 's2'];
@@ -391,11 +440,6 @@ const SHOP_ITEMS = [
   { id:'avatar-azul', name:'Avatar Azul', price:50, cat:'perfil', visual:{type:'avatar',cls:'bg-teal',l:'A'} },
   { id:'avatar-laranja', name:'Avatar Laranja', price:50, cat:'perfil', visual:{type:'avatar',cls:'bg-pink2',l:'L'} },
   { id:'avatar-dourado', name:'Avatar Dourado', price:50, cat:'perfil', visual:{type:'avatar',cls:'bg-yellow-bg',l:'D'} },
-  { id:'tema-noturno', name:'Tema Noturno', price:150, cat:'skins', visual:{type:'theme',cls:'bg-grad-night',e:'🌙'} },
-  { id:'tema-oceano', name:'Tema Oceano', price:150, cat:'skins', visual:{type:'theme',cls:'bg-grad-ocean',e:'🐋'} },
-  { id:'tema-porsol', name:'Tema Pôr do Sol', price:150, cat:'skins', visual:{type:'theme',cls:'bg-grad-sunset',e:'🌅'} },
-  { id:'tema-floresta', name:'Tema Floresta', price:200, cat:'skins', visual:{type:'theme',cls:'bg-grad-forest',e:'🌲'} },
-  { id:'tema-arcoiris', name:'Tema Arco-íris', price:250, cat:'skins', visual:{type:'theme',cls:'bg-grad-rainbow',e:'🌈'} },
   { id:'dobro-xp', name:'Dobro de XP', price:250, cat:'powerups', visual:{type:'power',cls:'bg-orange-power',e:'⚡'} },
   { id:'protecao', name:'Proteção de Ofensiva', price:200, cat:'powerups', visual:{type:'power',cls:'bg-teal-power',e:'🛡️'} },
   { id:'multi-2x', name:'Multiplicador 2x', price:200, cat:'powerups', visual:{type:'power',cls:'bg-orange-power2',e:'✨'} },
@@ -404,7 +448,7 @@ const SHOP_ITEMS = [
 const lojaState = { tab: 'todos' };
 function renderLoja() {
   const c = document.getElementById('view-loja');
-  const tabs = [['todos','Todos'],['perfil','Fotos de Perfil'],['skins','Skins/Temas'],['powerups','Power-ups']];
+  const tabs = [['todos','Todos'],['perfil','Fotos de Perfil'],['powerups','Power-ups']];
   const filtered = lojaState.tab === 'todos' ? SHOP_ITEMS : SHOP_ITEMS.filter(i => i.cat === lojaState.tab);
   c.innerHTML = `<div class="loja animate-reveal-up">
     <h2>Loja EducaHub</h2>

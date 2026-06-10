@@ -21,13 +21,29 @@
 .text-yellow-dark { color: rgb(202 138 4); }
 .dash-bell { position: relative; padding: 0.5rem; border-radius: 0.75rem; color: hsl(var(--foreground) / 0.7); }
 .dash-bell:hover { background: hsl(var(--muted)); }
-.dash-user { display: flex; align-items: center; gap: 0.625rem; padding: 0.375rem 0.5rem; border-radius: 1rem; }
+.dash-user { display: flex; align-items: center; gap: 0.625rem; padding: 0.375rem 0.5rem; border-radius: 1rem; position: relative; }
 .dash-user:hover { background: hsl(var(--muted)); }
 .dash-user .name { font-size: 0.875rem; font-weight: 600; display: none; }
 @media (min-width: 768px) { .dash-user .name { display: inline; } }
 .avatar { width: 2rem; height: 2rem; border-radius: 9999px;
   background: rgb(251 146 60); color: white;
   display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem; }
+
+.dash-user-menu { position: absolute; right: 0; top: calc(100% + 0.5rem); width: min(18rem, calc(100vw - 2rem)); background: hsl(var(--card)); border: 1px solid hsl(var(--border) / 0.7); border-radius: 1rem; box-shadow: 0 18px 40px rgba(0,0,0,.12); padding: 1rem; display: none; z-index: 200; }
+.dash-user-menu.open { display: block; }
+.dash-user-menu .user-summary { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; }
+.dash-user-menu .user-summary .avatar { width: 2.5rem; height: 2.5rem; font-size: 0.9rem; }
+.dash-user-menu .user-summary .info { display: flex; flex-direction: column; gap: 0.15rem; }
+.dash-user-menu .user-summary .info .name { font-weight: 700; }
+.dash-user-menu .user-summary .info .email { font-size: 0.8rem; color: hsl(var(--muted-foreground)); word-break: break-word; }
+.dash-user-menu .divider { height: 1px; background: hsl(var(--border) / 0.8); margin: 0.75rem 0; }
+.dash-user-menu .menu-item { width: 100%; display: flex; align-items: center; gap: 0.75rem; text-align: left; padding: 0.75rem 0.75rem; border-radius: 0.85rem; border: none; font-weight: 600; color: hsl(var(--foreground)); background: transparent; cursor: pointer; transition: background .15s; }
+.dash-user-menu .menu-item svg { color: hsl(var(--muted-foreground)); transition: color .15s; }
+.dash-user-menu .menu-item:hover { background: hsl(var(--muted)); }
+.dash-user-menu .menu-item:hover svg { color: hsl(var(--primary)); }
+.dash-user-menu .menu-item#user-menu-logout { color: rgb(239 68 68); }
+.dash-user-menu .menu-item#user-menu-logout:hover { background: rgb(239 68 68 / 0.1); }
+.dash-user-menu .menu-item#user-menu-logout svg { color: rgb(239 68 68); }
 @media (min-width: 768px) { .avatar { width: 2.5rem; height: 2.5rem; font-size: 0.875rem; } }
 
 .dash-body { display: flex; flex: 1; overflow: hidden; min-height: calc(100vh - 3.5rem); }

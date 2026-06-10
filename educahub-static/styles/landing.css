@@ -28,15 +28,16 @@
 .hero .signup {
   padding: 0.875rem 2rem; border-radius: 1.5rem;
   background: hsl(var(--primary)); color: hsl(var(--primary-foreground));
-  font-weight: 600; transition: all 0.2s;
+  font-weight: 600; transition: all 0.2s; border: 1px solid hsl(var(--primary));
 }
-.hero .signup:hover { box-shadow: 0 10px 25px -5px hsl(var(--primary) / 0.25); }
+.hero .signup:hover { background-color: transparent; border: 1px solid rgba(0,0,0,0.2); color: hsl(var(--muted-foreground));  }
 .hero .signup:active { transform: scale(0.97); }
 .hero .login-link {
+  border: 1px solid rgba(0,0,0,0.2); padding: 0.875rem 2rem; border-radius: 1.5rem;
   padding: 0.75rem 1rem; font-weight: 500;
-  color: hsl(var(--secondary));
+  color: hsl(var(--foreground)); transition: all 0.2s;
 }
-.hero .login-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.hero .login-link:hover {  background: hsl(var(--primary)); color: hsl(var(--primary-foreground));border-color: hsl(var(--primary)); ; }
 .hero .mascot { display: flex; justify-content: center; }
 .hero .mascot img { width: 100%; max-width: 42rem; }
 
@@ -44,10 +45,10 @@
 .about { padding: 5rem 0; overflow: hidden; }
 @media (min-width: 768px) { .about { padding: 7rem 0; } }
 .about .grid {
-  display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;
+  display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; 
 }
 @media (min-width: 768px) { .about .grid { grid-template-columns: 1fr 1fr; gap: 4rem; } }
-.about .img { display: flex; justify-content: center; }
+.about .img { display: flex; justify-content: center;  }
 .about .img img { width: 100%; max-width: 24rem; }
 .about .card {
   background: hsl(var(--muted) / 0.4);
