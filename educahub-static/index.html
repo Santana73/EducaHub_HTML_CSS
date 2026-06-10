@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EducaHub — Tudo o que você precisa para aprender</title>
+<meta name="description" content="EducaHub: plataforma educacional gratuita com conteúdos interativos, exercícios e jogos para transformar seu aprendizado em matemática." />
+<link rel="stylesheet" href="styles/base.css" />
+<link rel="stylesheet" href="styles/landing.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="container inner">
+    <a class="logo" href="index.html"><img src="assets/logo-educahub.png" alt="EducaHub logo" /></a>
+    <nav class="desktop">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contatos</a>
+      <a href="voluntario.html">Voluntário</a>
+    </nav>
+    <a class="btn-primary login-btn" href="login.html">Entrar</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="mobile" id="mobileMenu">
+    <a href="#inicio">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#contato">Contatos</a>
+    <a href="voluntario.html">Voluntário</a>
+    <a class="login-link" href="login.html">Entrar</a>
+  </div>
+</header>
+
+<main>
+  <section id="inicio" class="hero">
+    <div class="blob"></div>
+    <div class="container grid">
+      <div class="animate-reveal-up">
+        <h1>Tudo o que você precisa para <span class="text-secondary">aprender</span>, em um só lugar</h1>
+        <p class="desc">Conteúdos interativos, exercícios e jogos para transformar seu aprendizado em matemática.</p>
+        <div class="actions">
+          <a class="signup" href="cadastro.html">Cadastre-se</a>
+          <a class="login-link" href="login.html">Já tenho uma conta</a>
+        </div>
+      </div>
+      <div class="mascot animate-reveal-up stagger-2">
+        <img class="animate-float" src="assets/hero-illustration.png" alt="Polvo mascote do EducaHub com livros e símbolos educacionais" />
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="about">
+    <div class="container">
+      <div class="grid">
+        <div class="img"><img src="assets/about-illustration.png" alt="Estudante aprendendo com livros" /></div>
+        <div>
+          <div class="card">
+            <p class="tag">Quem somos</p>
+            <h2>Educação gratuita e <span class="text-secondary">acessível</span> para todos</h2>
+            <p>O EducaHub é uma plataforma educacional criada para apoiar estudantes no aprendizado contínuo. Oferecemos conteúdos de qualidade de forma clara, inclusiva e interativa, promovendo a democratização da educação em todo o Brasil. No site, os usuários encontram resumos, questões, jogos e enunciados que estimulam a aprendizagem em disciplinas como Matemática e a reflexão sobre temas atuais como sustentabilidade.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos" class="services">
+    <div class="container">
+      <div class="heading">
+        <p class="tag">O que oferecemos</p>
+        <h2>Nossos <span class="text-secondary">Serviços</span></h2>
+      </div>
+      <div class="cards">
+        <div class="service-card">
+          <div class="icon-wrap icon-primary">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <h3>Aprendizado Estruturado</h3>
+          <p>Trilhas de estudo por nível com metas claras e um banco de exercícios interativo, com correção automática e feedback passo a passo.</p>
+          <button class="more primary">Saiba mais →</button>
+        </div>
+        <div class="service-card">
+          <div class="icon-wrap icon-secondary">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="15.01" y2="12"/><line x1="18" y1="10" x2="18.01" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258A4 4 0 0 0 17.32 5z"/></svg>
+          </div>
+          <h3>Aprender Brincando</h3>
+          <p>Jogos educativos para treinar raciocínio lógico e cálculo mental, mostrando aplicações da matemática em tecnologia e engenharia.</p>
+          <button class="more secondary">Saiba mais →</button>
+        </div>
+        <div class="service-card">
+          <div class="icon-wrap icon-primary">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a1 1 0 0 1-1-1v-6a8 8 0 0 1 16 0v6a1 1 0 0 1-1 1h-2a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg>
+          </div>
+          <h3>Apoio Personalizado</h3>
+          <p>Plantão de dúvidas 24h via chat para perguntas rápidas e apoio de professores voluntários qualificados.</p>
+          <button class="more primary">Saiba mais →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contact">
+    <div class="blob"></div>
+    <div class="container">
+      <div class="heading">
+        <p class="tag">Fale conosco</p>
+        <h2>Entre em <span class="text-secondary">Contato</span></h2>
+      </div>
+      <div class="grid">
+        <div class="info">
+          <p>Tem dúvidas, sugestões ou quer fazer parte do EducaHub? Envie uma mensagem e retornaremos em breve.</p>
+          <div class="info-item"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span>contato@educahub.com.br</span></div>
+          <div class="info-item"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span>Chat 24h disponível</span></div>
+          <div class="info-item"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span>100% Online — Todo o Brasil</span></div>
+        </div>
+        <form onsubmit="event.preventDefault()">
+          <div class="row">
+            <input type="text" placeholder="Seu nome" />
+            <input type="email" placeholder="Seu e-mail" />
+          </div>
+          <input type="text" placeholder="Assunto" />
+          <textarea rows="4" placeholder="Sua mensagem"></textarea>
+          <button type="submit" class="send">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Enviar mensagem
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container text">© <span id="year"></span> EducaHub. Todos os direitos reservados.</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('menuToggle').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

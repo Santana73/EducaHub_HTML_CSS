@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cadastre-se — EducaHub</title>
+<meta name="description" content="Crie sua conta gratuita no EducaHub e comece a aprender matemática com trilhas, jogos e exercícios interativos." />
+<link rel="stylesheet" href="styles/base.css" />
+<link rel="stylesheet" href="styles/auth.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="container inner">
+    <a class="logo" href="index.html"><img src="assets/logo-educahub.png" alt="EducaHub logo" /></a>
+    <nav class="desktop">
+      <a href="index.html#inicio">Início</a>
+      <a href="index.html#sobre">Sobre</a>
+      <a href="index.html#servicos">Serviços</a>
+      <a href="index.html#contato">Contatos</a>
+      <a href="voluntario.html">Voluntário</a>
+    </nav>
+    <a class="btn-primary login-btn" href="login.html">Entrar</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="mobile" id="mobileMenu">
+    <a href="index.html#inicio">Início</a>
+    <a href="index.html#sobre">Sobre</a>
+    <a href="index.html#servicos">Serviços</a>
+    <a href="index.html#contato">Contatos</a>
+    <a href="voluntario.html">Voluntário</a>
+    <a class="login-link" href="login.html">Entrar</a>
+  </div>
+</header>
+
+<main class="auth-wrap">
+  <div class="blob1"></div>
+  <svg class="star" style="left:auto; right:2rem; top:25%; color: hsl(var(--primary)/0.15); width:9rem; height:9rem;" viewBox="0 0 100 100"><polygon points="50,3 61,37 97,37 68,58 79,93 50,72 21,93 32,58 3,37 39,37" fill="currentColor"/></svg>
+
+  <div class="auth-card animate-reveal-up">
+    <a class="auth-back" href="index.html">← Voltar</a>
+    <h1>Crie sua conta</h1>
+    <p class="sub">Faça seu cadastro para começar</p>
+    <form class="auth-form" id="cadastroForm" onsubmit="event.preventDefault()">
+      <div class="input-group">
+        <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+        <input type="text" placeholder="Seu nome" />
+      </div>
+      <div class="input-group">
+        <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+        <input type="email" placeholder="seu@email.com" />
+      </div>
+      <div class="input-group">
+        <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+        <input type="text" placeholder="DD/MM/AAAA" />
+      </div>
+      <div class="input-group">
+        <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+        <select>
+          <option value="">Selecione sua escolaridade</option>
+          <option>Ensino Fundamental</option>
+          <option>Ensino Médio</option>
+          <option>Ensino Superior</option>
+          <option>Pós-Graduação</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+        <input type="password" class="with-toggle" id="pwInput" placeholder="Mínimo 8 caracteres" />
+        <button type="button" class="toggle" id="pwToggle" aria-label="Mostrar senha">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+      <button type="submit" class="btn-dark">Criar conta</button>
+    </form>
+    <div class="divider"><div class="line"></div><span>ou continue com</span><div class="line"></div></div>
+    <div class="social-row">
+      <button class="social-btn">G</button>
+      <button class="social-btn">f</button>
+      <button class="social-btn">GH</button>
+    </div>
+    <p class="auth-foot">Já tem uma conta? <a href="login.html">Entrar</a></p>
+  </div>
+</main>
+
+<script>
+  document.getElementById('menuToggle').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+  const pwInput = document.getElementById('pwInput');
+  document.getElementById('pwToggle').addEventListener('click', () => {
+    pwInput.type = pwInput.type === 'password' ? 'text' : 'password';
+  });
+
+  // Redirecionar para dashboard após cadastro
+  const cadastroForm = document.getElementById('cadastroForm');
+  cadastroForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Validar se todos os campos foram preenchidos
+    const inputs = cadastroForm.querySelectorAll('input[type="text"], input[type="email"], input[type="password"], select');
+    let valid = true;
+    
+    inputs.forEach(input => {
+      if (!input.value.trim()) {
+        valid = false;
+      }
+    });
+    
+    if (valid) {
+      // Redirecionar para o dashboard
+      window.location.href = 'dashboard.html';
+    } else {
+      alert('Por favor, preencha todos os campos do formulário.');
+    }
+  });
+</script>
+</body>
+</html>
